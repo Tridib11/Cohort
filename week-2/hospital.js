@@ -41,6 +41,31 @@ app.post("/",(req,res)=>{
     })
 })
 
+
+app.put("/",(req,res)=>{
+  for(let i=0;i<users[0].kidneys.length;i++){
+    users[0].kidneys[i].healthy=true
+  }
+  res.json({})
+})
+
+
+app.delete("/",(req,res)=>{
+  let newKidneys=[]
+  for(let i=0;i<users[0].kidneys.length;i++){
+    if(users[0].kidneys[i].healthy){
+      newKidneys.push({
+        healthy:true
+      })
+    }
+  }
+
+  users[0].kidneys=newKidneys
+
+  res.json({
+    msg:"DB Updated"
+  })
+})
 app.listen(3000, () => {
   console.log("Server started");
 });
