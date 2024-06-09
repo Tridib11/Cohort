@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 
-const users = [{
-  name: "John",
-  kidneys: [
-    { healthy: false },
-    { healthy: true },
-    { healthy: true }
-  ]
-}];
+const users = [
+  {
+    name: "John",
+    kidneys: [{ healthy: false }, { healthy: true }, { healthy: true }],
+  },
+];
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   const johnKidneys = users[0].kidneys;
@@ -20,15 +20,26 @@ app.get("/", (req, res) => {
       numberOfHealthyKidneys++;
     }
   }
-
-  const numberOfUnhealthyKidneys=numberOfKidneys-numberOfHealthyKidneys
+  const numberOfUnhealthyKidneys = numberOfKidneys - numberOfHealthyKidneys;
 
   res.json({
     numberOfKidneys,
     numberOfHealthyKidneys,
-    numberOfUnhealthyKidneys
-  })
+    numberOfUnhealthyKidneys,
+  });
 });
+
+
+
+app.post("/",(req,res)=>{
+    const isHealthy=req.body.isHealthy
+    users[0].kidneys.push({
+      healthy:isHealthy
+    })
+    res.json({
+      msg:"Done!"
+    })
+})
 
 app.listen(3000, () => {
   console.log("Server started");
