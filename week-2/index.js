@@ -9,6 +9,9 @@ app.get("/",(req,res)=>{
 
 app.post("/posting",(req,res)=>{
   console.log(req.body)
+  res.json({
+    output:"2+2=4"
+  })
 })
 
 app.listen(3000,()=>{
