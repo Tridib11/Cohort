@@ -20,3 +20,6 @@ const allUsers = [
 ];
 
 function userExists(username, password) {}
+app.listen(3000,()=>{
+  console.log("Server started");
+})
