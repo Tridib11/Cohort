@@ -5,5 +5,12 @@ function validateInput(obj) {
     password: zod.string().min(8),
   });
 
-  
+  const response=schema.safeParse(obj)
+  console.log(response)
 }
+
+
+validateInput({
+  email:"tridibghosh12345@gmail.com",
+  password:"abcdefgh"
+})
