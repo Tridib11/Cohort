@@ -18,3 +18,7 @@ const allUsers=[
     name:"rahul"
   }
 ]
+
+function userExists(username,password){
+  
+}
