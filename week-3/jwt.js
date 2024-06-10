@@ -1,24 +1,22 @@
-const express=require("express")
-const app=express()
+const express = require("express");
+const app = express();
 
-const allUsers=[
+const allUsers = [
   {
-    username:"tridib@mail.com",
-    password:"123",
-    name:"tridib"
+    username: "tridib@mail.com",
+    password: "123",
+    name: "tridib",
   },
   {
-    username:"rohan@mail.com",
-    password:"456",
-    name:"rohan"
+    username: "rohan@mail.com",
+    password: "456",
+    name: "rohan",
   },
   {
-    username:"rahul@mail.com",
-    password:"789",
-    name:"rahul"
-  }
-]
+    username: "rahul@mail.com",
+    password: "789",
+    name: "rahul",
+  },
+];
 
-function userExists(username,password){
-  
-}
+function userExists(username, password) {}
