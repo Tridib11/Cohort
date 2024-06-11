@@ -29,7 +29,7 @@ app.post("/signup", async (req, res) => {
   });
 
   User.save();
-  User.save();
+  User.save(); //to be removed later
 
   res.json({
     msg: "User created Successfully",
