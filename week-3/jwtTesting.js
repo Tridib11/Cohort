@@ -7,5 +7,7 @@ const data={
 
 const hasedData=jwt.sign(data,"secret");
 
-const jwtVerification=
+// const jwtVerification=
+
+const jwtV
 console.log(hasedData)
