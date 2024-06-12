@@ -24,8 +24,15 @@ function signJwt(username, password) {
   return signature;
 }
 
+function verifyJwt(token) {
+  try {
+    jwt.verify(token, jwtPassword);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
 function decodeJwt(token) {
   const decoded = jwt.decode(token);
   return decoded ? true : false;
 }
-
