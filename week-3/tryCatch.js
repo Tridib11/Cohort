@@ -1,8 +1,7 @@
-function nameLength(name) {
-  return name.length;
-}
-
 try {
+  function nameLength(name) {
+    return name.length;
+  }
   const ans = nameLength();
   console.log(ans);
 } catch (err) {
