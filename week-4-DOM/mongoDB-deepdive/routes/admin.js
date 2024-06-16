@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const adminMiddleware = require("../middleware/admin.js");
 const zod = require("zod");
-const { Admin } = require("../db/index.js");
+const { Admin, Course } = require("../db/index.js");
 
 const router = Router();
 
@@ -11,47 +11,59 @@ const adminSignupSchema = zod.object({
 });
 
 // Admin Routes
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   // Implement admin signup logic
-
-  // const username=req.body.username
-  // const password=req.body.password
 
   const validationResult = adminSignupSchema.safeParse(req.body);
 
+  if (!validationResult.success) {
+    res.status(400).json({
+      msg: "Invalid request data",
+      errors: validationResult.error.issues,
+    });
+    return;
+  }
+
   const { username, password } = validationResult.data;
 
-  Admin.findOne({
-    username,
-    password,
-  }).then(function (value) {
-    if (value) {
+  try {
+    const existingAdmin = await Admin.findOne({ username });
+
+    if (existingAdmin) {
       res.status(403).json({
         msg: "Admin already exist",
       });
     } else {
-      Admin.create({
+      const admin = await Admin.create({
         username,
         password,
-      })
-        .then((admin) => {
-          res.status(201).json({
-            msg: "Admin created Successfully",
-            admin,
-          });
-        })
-        .catch((err) => {
-          res.status(500).json({
-            msg: "Error creating admin",
-            error: err.message,
-          });
-        });
-    }
-  });
-});
+      });
 
+      res.status(201).json({
+        msg: "Admin created Successfully"
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      msg: "Error creating admin",
+      error: err.message,
+    });
+  }
+});
 router.post("/courses", adminMiddleware, (req, res) => {
   // Implement course creation logic
+
+  const title=req.body.title
+  const description=req.body.description
+  const imageLink=req.body.imageLink
+  const price=req.body.price
+
+  Course.create({
+    title,
+    description,
+    imageLink,
+    price
+  })
 });
 
 router.get("/courses", adminMiddleware, (req, res) => {
