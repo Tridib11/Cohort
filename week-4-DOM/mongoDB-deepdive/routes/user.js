@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const zod = require("zod");
 const userMiddleware = require("../middleware/user");
-const { User,Course } = require("../db");
+const { User, Course } = require("../db");
 
 const userSignupSchema = zod.object({
   username: zod.string(),
@@ -50,48 +50,49 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.get("/courses", async(req, res) => {
+router.get("/courses", async (req, res) => {
   // Implement listing all courses logic
-  const allCourses=await Course.find({})
-    res.json({
-        allCourses
-    })
+  const allCourses = await Course.find({});
+  res.json({
+    allCourses,
+  });
 });
 
-router.post("/courses/:courseId", userMiddleware, async(req, res) => {
+router.post("/courses/:courseId", userMiddleware, async (req, res) => {
   // Implement course purchase logic
 
-  const courseId=req.params.courseId;
-  const username=req.headers.username;
-  await User.updateOne({
-    username
-  },{
-    "$push":{
-        purchasedCourse:courseId
+  const courseId = req.params.courseId;
+  const username = req.headers.username;
+  await User.updateOne(
+    {
+      username,
+    },
+    {
+      $push: {
+        purchasedCourse: courseId,
+      },
     }
-  })
+  );
   res.json({
-    message:"Course purchased Successfully"
-  })
+    message: "Course purchased Successfully",
+  });
 });
 
-router.get("/purchasedCourses", userMiddleware, async(req, res) => {
+router.get("/purchasedCourses", userMiddleware, async (req, res) => {
   // Implement fetching purchased courses logic
-    const user=await User.findOne({
-        username:req.headers.username
-    })
+  const user = await User.findOne({
+    username: req.headers.username,
+  });
 
-    const courses=await Course.find({
-        _id:{
-            "$in":user.purchasedCourse
-        }
-    })
+  const courses = await Course.find({
+    _id: {
+      $in: user.purchasedCourse,
+    },
+  });
 
-    res.json({
-        Courses:courses
-    })
-  
-
+  res.json({
+    Courses: courses,
+  });
 });
 
 module.exports = router;
