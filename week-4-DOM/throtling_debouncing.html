@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    let timeOut;
+    function debounceCalculateSI(){
+        clearTimeout(timeOut)
+        timeOut=setTimeout(function (){
+            calculateSI()
+        },1000)
+    }
+    async function calculateSI(){
+        const p=document.getElementById("Principle").value;
+        const r=document.getElementById("Rate").value;
+        const t=document.getElementById("Time").value;
+        const response=await fetch("https://sum-server.100xdevs.com/interest?principal="+p+"&rate="+r+"&time="+t);
+        const ans=await response.json();
+        document.getElementById("finalSI").innerHTML=ans.total;
+    }
+
+</script>
+<body>
+
+<input oninput="debounceCalculateSI()" id="Principle" type="text" placeholder="Principle"><br>
+<input oninput="debounceCalculateSI()" id="Rate" type="text" placeholder="Rate"><br>
+<input oninput="debounceCalculateSI()" id="Time" type="text" placeholder="Time"><br>
+
+<div id="finalSI"></div>
+
+</body>
+</html>
