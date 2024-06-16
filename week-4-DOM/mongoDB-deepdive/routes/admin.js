@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, response } = require("express");
 const adminMiddleware = require("../middleware/admin.js");
 const zod = require("zod");
 const { Admin, Course } = require("../db/index.js");
@@ -50,7 +50,7 @@ router.post("/signup", async (req, res) => {
     });
   }
 });
-router.post("/courses", adminMiddleware, (req, res) => {
+router.post("/courses", adminMiddleware, async(req, res) => {
   // Implement course creation logic
 
   const title=req.body.title
@@ -58,16 +58,23 @@ router.post("/courses", adminMiddleware, (req, res) => {
   const imageLink=req.body.imageLink
   const price=req.body.price
 
-  Course.create({
+  const newCourse=await Course.create({
     title,
     description,
     imageLink,
     price
   })
+  res.json({
+    message:'Course created Successfully ',courseId:newCourse._id
+  })
 });
 
-router.get("/courses", adminMiddleware, (req, res) => {
+router.get("/courses", adminMiddleware, async(req, res) => {
   // Implement fetching all courses logic
+    const allCourses=await Course.find({})
+    res.json({
+        allCourses
+    })
 });
 
 module.exports = router;
