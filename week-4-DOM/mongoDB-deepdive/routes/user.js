@@ -33,7 +33,7 @@ router.post("/signup", async (req, res) => {
         msg: "User already exist",
       });
     } else {
-      const User = await User.create({
+      const newUser = await User.create({
         username,
         password,
       });
@@ -58,12 +58,40 @@ router.get("/courses", async(req, res) => {
     })
 });
 
-router.post("/courses/:courseId", userMiddleware, (req, res) => {
+router.post("/courses/:courseId", userMiddleware, async(req, res) => {
   // Implement course purchase logic
+
+  const courseId=req.params.courseId;
+  const username=req.headers.username;
+  await User.updateOne({
+    username
+  },{
+    "$push":{
+        purchasedCourse:courseId
+    }
+  })
+  res.json({
+    message:"Course purchased Successfully"
+  })
 });
 
-router.get("/purchasedCourses", userMiddleware, (req, res) => {
+router.get("/purchasedCourses", userMiddleware, async(req, res) => {
   // Implement fetching purchased courses logic
+    const user=await User.findOne({
+        username:req.headers.username
+    })
+
+    const courses=await Course.find({
+        _id:{
+            "$in":user.purchasedCourse
+        }
+    })
+
+    res.json({
+        Courses:courses
+    })
+  
+
 });
 
 module.exports = router;
