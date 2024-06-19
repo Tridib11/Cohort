@@ -17,12 +17,16 @@ function Todo() {
     <div>
       {/* {JSON.stringify(todos)} */}
 
-      <Todos title="Go to gym" description="Gym from 8-9"/>
+      {/* <Todos title="Go to gym" description="Gym from 8-9"/>
 
       <Todos title="Go to gym" description="Gym from 8-9"/>
       <Todos title="Go to gym" description="Gym from 8-9"/>
       <Todos title="Go to gym" description="Gym from 8-9"/>
-      <Todos title="Go to gym" description="Gym from 8-9"/>
+      <Todos title="Go to gym" description="Gym from 8-9"/> */}
+
+      {todos.map(function(todo){
+        return <Todos title={todo.title} description={todo.description}/>
+      })}
     </div>
   )
 }
