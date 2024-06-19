@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.post("/todo", async (req, res) => {
   const createPayload = req.body;
-  const parsePayload = createPayload.safeparse(createPayload);
+  const parsePayload = createTodo.safeParse(createPayload);
   if (!parsePayload.success) {
     res.status(411).json({
       msg: "Your inputs are wrong",
@@ -37,15 +37,8 @@ app.get("/todos", async (req, res) => {
 
 app.put("/completed", async (req, res) => {
   const createPayload = req.body;
-  const parsePayload = createPayload.safeparse(createPayload);
-  if (!parsePayload.success) {
-    res.status(411).json({
-      msg: "Your inputs are wrong",
-    });
-    return;
-  }
 
-  await todo.update(
+  await todo.updateOne(
     {
       _id: req.body.id,
     },
