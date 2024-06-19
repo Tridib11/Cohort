@@ -52,13 +52,10 @@ app.put("/completed", async (req, res) => {
     {
       completed: true,
     }
-  )
+  );
   res.json({
-    msg:"Todo marked as completed"
-  })
-  
-  
-  ;
+    msg: "Todo marked as completed",
+  });
 });
 
 app.listen(3000, () => {
