@@ -8,8 +8,13 @@ app.post("/todo",(req,res)=>{
 })
 
 app.get("/todos",(req,res)=>{
-  res.send("Heu")
+  
 })
+
+app.put("/completed",(req,res)=>{
+
+})
+
 
 app.listen(3000,()=>{
   console.log("Server started")
