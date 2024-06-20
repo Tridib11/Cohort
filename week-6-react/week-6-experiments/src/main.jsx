@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import './index.css'
 import WrapperComponent from './WrapperComponent'
+import FetchTodos from './FetchTodos'
 // import Memo from './Memo.jsx'
 // import Todo from './Todo.jsx'
 
@@ -12,7 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <App /> */}
     {/* <Memo/> */}
     {/* <Todo/> */}
-    <WrapperComponent/>
+    {/* <WrapperComponent/> */}
+    <FetchTodos/>
   </React.StrictMode>,
 )
 
