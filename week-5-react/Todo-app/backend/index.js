@@ -38,8 +38,6 @@ app.get("/todos", async (req, res) => {
 });
 
 app.put("/completed", async (req, res) => {
-  const createPayload = req.body;
-
   await todo.updateOne(
     {
       _id: req.body.id,
