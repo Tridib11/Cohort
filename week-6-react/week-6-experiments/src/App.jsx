@@ -1,17 +1,29 @@
+import { useState } from "react"
 
 function App() {
-
+  
   return (
     <div>
-      <Header title="Rohan"/>
+      <HeaderButton/>
       <Header title="Tridib"/>
     </div>
   )
 }
 
+function HeaderButton(){
+  const[name,setName]=useState("Rohan")
+  return <div>
+    <button onClick={()=>{
+      setName(Math.random())
+    }}>Click me to change the header</button> <br />
+    My name is {name}
+  </div>
+
+}
+
 function Header({title}){
   return <div>
-    {title}
+    My name is {title}
   </div>
 }
 
