@@ -2,14 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import './index.css'
+import WrapperComponent from './WrapperComponent'
 // import Memo from './Memo.jsx'
-import Todo from './Todo.jsx'
+// import Todo from './Todo.jsx'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Memo/> */}
-    <Todo/>
+    {/* <Todo/> */}
+    <WrapperComponent/>
   </React.StrictMode>,
 )
 
