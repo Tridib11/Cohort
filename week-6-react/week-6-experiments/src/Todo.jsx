@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function Todo() {
-  const [todo,setTodo]=useState([
+  const [todos,setTodos]=useState([
     {
       id:1,
       title:"Gym",
@@ -20,7 +20,7 @@ function Todo() {
   ])
   return (
     <div>
-      {todo.map(todo => <TodoComponent key={todo.id} title={todo.title} description={todo.description}/> )}
+      {todos.map(todos => <TodoComponent key={todos.id} title={todos.title} description={todos.description}/> )}
     </div>
   )
 }
