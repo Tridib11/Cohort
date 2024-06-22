@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function ButtonCLicker() {
   return (
@@ -6,6 +6,15 @@ function ButtonCLicker() {
       
     </div>
   )
+}
+
+
+
+function Todo(){
+  const[todos,setTodos]=useState([])
+  useEffect(()=>{
+    
+  },[])
 }
 
 export default ButtonCLicker
