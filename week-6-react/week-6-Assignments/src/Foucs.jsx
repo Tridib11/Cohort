@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react'
 
 function Foucs() {
   const inputRef=useRef()
-
-
   useEffect(()=>{
     inputRef.current.focus()
   },[])
