@@ -7,7 +7,7 @@ function Ref() {
   useEffect(() => {
     setTimeout(() => {
       console.log(divRef.current);
-      divRef.current.textContent = 10;
+      divRef.current.innerHTML = 10;
     }, 5000);
   }, []);
 
