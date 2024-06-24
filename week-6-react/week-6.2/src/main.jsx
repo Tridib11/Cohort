@@ -4,12 +4,14 @@ import ReactDOM from 'react-dom/client'
 // import IdEndoint from './IdEndoint.jsx'
 // import ButtonCLicker from './ButtonCLicker.jsx'
 import Memo from './Memo.jsx'
+import Callback from './Callback.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <IdEndoint/> */}
     {/* <ButtonCLicker/> */}
-    <Memo/>
+    {/* <Memo/> */}
+    <Callback/>
   </React.StrictMode>,
 )
