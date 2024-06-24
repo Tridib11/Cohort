@@ -1,7 +1,13 @@
-import React, { memo, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 
+
+// useCallback is used to memoise functions across the renders
 function Callback() {
   const [counter, setCounter] = useState(0);
+
+  const a=useCallback(function(){
+      console.log("hello")
+    },[]) 
 
   return (
     <div>
@@ -10,6 +16,7 @@ function Callback() {
         }}>
         Counter {counter}
       </button>
+      <Demo a={a}/>
     </div>
   );
 }
