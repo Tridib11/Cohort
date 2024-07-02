@@ -6,12 +6,10 @@ function TodoID() {
   const [todoID, setTodoID] = useState(0)
 
   useEffect(() => {
-    
       axios.get(`https://sum-server.100xdevs.com/todo?id=${todoID}`)
         .then((response) => {
           setTodo(response.data.todo)
-        })
-    
+        })  
   }, [todoID])
 
   return (
