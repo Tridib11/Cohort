@@ -7,11 +7,13 @@ import Todo from './Todo.jsx'
 import Todos from './Todos.jsx'
 import TodoID from './TodoID.jsx'
 import SumOneToN from './SumOneToN.jsx'
+import Callback from './Callback.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <Test/>
     // <Todo/>
     // <Todos/>
     // <TodoID/>
-    <SumOneToN/>
+    // <SumOneToN/>
+    <Callback/>
 )
