@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function TodoID() {
-  const [todo, setTodo] = useState(null)
-  const [todoID, setTodoID] = useState('')
+  const [todo, setTodo] = useState({})
+  const [todoID, setTodoID] = useState(0)
 
   useEffect(() => {
-    if (todoID !== '') {
+    
       axios.get(`https://sum-server.100xdevs.com/todo?id=${todoID}`)
         .then((response) => {
           setTodo(response.data.todo)
         })
-    }
+    
   }, [todoID])
 
   return (
