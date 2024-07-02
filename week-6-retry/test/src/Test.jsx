@@ -12,7 +12,7 @@ function Test() {
       <Header title="Ram"/>
       <Header title="Ram"/>
       <Header title="Ram"/>
-      <Header title="Ram"/>
+      
     </div>
   )
 }

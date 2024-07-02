@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
 function Todo() {
 
@@ -23,13 +23,20 @@ function Todo() {
   )
   return (
     <div>
-      {todo.map(todos=><DisplayTodo title={todos.title} description={todos.description}/>)}
+      <button onClick={()=>{
+        setTodo([...todo,{
+          id:todo.length+1,
+          title:"Random Title",
+          description:"Random description"
+        }])
+      }}>Add Todo</button>
+      {todo.map(todos=><DisplayTodo key={todos.id} title={todos.title} description={todos.description}/>)}
     </div>
   )
 }
 
 
-function DisplayTodo({title,description}){
+const DisplayTodo=memo(({title,description})=>{
   return <div>
     <h1>
       {title}
@@ -39,6 +46,8 @@ function DisplayTodo({title,description}){
       {description}
     </h2>
   </div>
-}
+})
+  
+
 
 export default Todo
