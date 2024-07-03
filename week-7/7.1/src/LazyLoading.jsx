@@ -1,43 +1,38 @@
-import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { lazy } from "react";
-const Dashboard = lazy(()=>import("./components/Dashboard"));
-const Landing = lazy(()=>import("./components/Landing"));
+import "./App.css";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+
+const Dashboard = lazy(()=> import("./components/Dashboard"));
+const Landing = lazy(()=> import("./components/Landing"));
+
+
 function LazyLoading() {
+
+    //Suspense API(Asynchronus Fetching from the backend)
+
   return (
-    <div>
+    <div>  
       <BrowserRouter>
-        <Navigator />
-          <Routes>
-            <Route path="/dashboard" element={ <Suspense fallback={'...loading'}><Dashboard/></Suspense>} />
-            <Route path="/"element={ <Suspense fallback={'...loading'}><Landing/></Suspense>}/>
-          </Routes>
-  
+      <Appbar/>
+        <Routes>
+          <Route path="/dashboard" element={<Suspense fallback={"loading..."}><Dashboard/></Suspense>} />
+          <Route path="/" element={<Suspense fallback={"Loading..."}><Landing/></Suspense>} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
-function Navigator() {
-  const navigate = useNavigate();
-  return (
-    <div>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Landing Page
-      </button>
-      <button
-        onClick={() => {
-          navigate("/dashboard");
-        }}
-      >
-        Dashboard
-      </button>
-    </div>
-  );
+// navigate works only inside a component
+function Appbar(){
+  const navigate=useNavigate()
+  return <div>
+        <button onClick={()=>{
+          navigate("/")
+        }}>Landing Page</button>
+        <button onClick={()=>{
+          navigate("/dashboard")
+        }}>Dashboard</button>
+      </div>
 }
 
 export default LazyLoading;
