@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
@@ -7,9 +6,6 @@ const Landing = lazy(()=> import("./components/Landing"));
 
 
 function LazyLoading() {
-
-    //Suspense API(Asynchronus Fetching from the backend)
-
   return (
     <div>  
       <BrowserRouter>
