@@ -12,12 +12,20 @@ function ContextApi() {
 
 function Count({count,setCount}){
   return <div>
-    {count}
+    <CountRenderer/>
     <Buttons count={count} setCount={setCount}/>
   </div>
 }
 
-function Buttons({count,setCount}){
+function CountRenderer(){
+  const count=1;
+  return <div>
+    {count}
+  </div>
+}
+
+function Buttons({setCount}){
+  const count=1
   return <div>
     <button onClick={()=>{
       setCount(count+1)
