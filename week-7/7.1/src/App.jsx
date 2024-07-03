@@ -6,9 +6,13 @@ import { Landing } from './components/Landing'
 function App() {
   return (
     <div>
-      <div style={{background:"black",color:"white"}}>
-        This is a top bar
-
+      <div>
+        <button onClick={()=>{
+          window.location.href="/"
+        }}>Landing Page</button>
+        <button onClick={()=>{
+          window.location.href="/dashboard"
+        }}>Dashboard</button>
       </div>
     <BrowserRouter>
       <Routes>
