@@ -4,18 +4,11 @@ import { Dashboard } from './components/Dashboard'
 import { Landing } from './components/Landing'
 
 function App() {
-  const navigate=useNavigate()
+
   return (
     <div>
-      <div>
-        <button onClick={()=>{
-          navigate("/")
-        }}>Landing Page</button>
-        <button onClick={()=>{
-          navigate('/dashboard')
-        }}>Dashboard</button>
-      </div>
     <BrowserRouter>
+    <Navigatior/>
       <Routes>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/' element={<Landing/>}/>
@@ -23,6 +16,20 @@ function App() {
     </BrowserRouter>
     </div>
   )
+}
+
+function Navigatior(){
+  const navigate=useNavigate()
+  return <div>
+
+        <button onClick={()=>{
+          navigate("/")
+        }}>Landing Page</button>
+        <button onClick={()=>{
+          navigate('/dashboard')
+        }}>Dashboard</button>
+  
+  </div>
 }
 
 export default App
