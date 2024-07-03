@@ -1,17 +1,18 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { Dashboard } from './components/Dashboard'
 import { Landing } from './components/Landing'
 
 function App() {
+  const navigate=useNavigate()
   return (
     <div>
       <div>
         <button onClick={()=>{
-          window.location.href="/"
+          navigate("/")
         }}>Landing Page</button>
         <button onClick={()=>{
-          window.location.href="/dashboard"
+          navigate('/dashboard')
         }}>Dashboard</button>
       </div>
     <BrowserRouter>
