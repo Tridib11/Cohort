@@ -1,20 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { Landing } from "./components/Landing";
 import { lazy } from "react";
-import Dashboard from React.lazy(()=>"./components/Dashboard");
-import Landing from lazy(()=>"./components/Landing");
+const Dashboard = lazy(()=>import("./components/Dashboard"));
+const Landing = lazy(()=>import("./components/Landing"));
 function LazyLoading() {
   return (
     <div>
       <BrowserRouter>
         <Navigator />
-
           <Routes>
-            <Route path="/dashboard" element={
-              <Dashboard/>
-            } />
-            <Route path="/" element={<Landing />} />
+            <Route path="/dashboard" element={ <Suspense fallback={'...loading'}><Dashboard/></Suspense>} />
+            <Route path="/"element={ <Suspense fallback={'...loading'}><Landing/></Suspense>}/>
           </Routes>
   
       </BrowserRouter>
