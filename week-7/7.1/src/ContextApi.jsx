@@ -1,6 +1,8 @@
 // import React, { useContext, useState } from "react";
 // import { CountContext } from "./Context";
+
 // //Wrap the component that want to use the teleported value inside the count context provider
+
 // function ContextApi() {
 //   const [count, setCount] = useState(0);
 
