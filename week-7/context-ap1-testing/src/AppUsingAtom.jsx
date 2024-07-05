@@ -26,7 +26,9 @@ function Count(){
 function EvenHandler(){
   
   const count=useRecoilValue(evenSelector)
-  return count%2==0? "It is even":"It is odd"
+  return <div>
+    {count%2==0? "It is even":"It is odd"}
+  </div> 
   // const isEven=useMemo(()=>{
   //   return count%2==0? "It is even":"It is odd"
   // },[count])
