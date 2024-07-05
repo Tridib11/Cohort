@@ -34,7 +34,7 @@ function Buttons({setCount}){
     <button onClick={()=>{
       setCount(count+1)
     }}>Increase</button>
-    <br />
+    
     <button onClick={()=>{
       setCount(count-1)
     }}>Decrease</button>
