@@ -1,5 +1,5 @@
 import { RecoilRoot, useRecoilState, useRecoilValue } from 'recoil'
-import { countAtom } from './store/atoms/count'
+import  countAtom  from './store/atoms/countAtom'
 
 function AppUsingAtom() {
   
