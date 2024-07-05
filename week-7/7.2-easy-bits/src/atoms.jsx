@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const networkAtom=atom({
   key:"networkAtom",
-  default:104
+  default:104 
 })
 
 export const jobsAtom=atom({
