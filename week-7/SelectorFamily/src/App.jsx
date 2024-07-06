@@ -1,5 +1,5 @@
 
-import { RecoilRoot, useRecoilState } from 'recoil'
+import { RecoilRoot, useRecoilState, useRecoilStateLoadable } from 'recoil'
 import './App.css'
 
 import React from 'react'
@@ -20,11 +20,20 @@ function App() {
 
 
 function Todo({id}){
-  const[todo,setTodo]=useRecoilState(todosAtomFamily(id))
+  //const[todo,setTodo]=useRecoilState(todosAtomFamily(id))
+  const[todo,setTodo]=useRecoilStateLoadable(todosAtomFamily(id))
+  // console.log(todo.state)
+  if(todo.state==="loading"){
+    return <div>
+      Loading...
+    </div>
+  }else if(todo.state==="hasValue"){
+
   return <div>
-    {todo.title},
-    {todo.description}
+    {todo.contents.title},
+    {todo.contents.description}
   </div>
+  }
 }
 
 export default App
