@@ -13,6 +13,7 @@ function App() {
       </div>
       <Grids/>
       <GridsSpan/>
+      <FlexSpan/>
       
     </div>
   )
@@ -32,6 +33,14 @@ function GridsSpan(){
       <div className='bg-red-500 col-span-4'>Hi</div>
       <div className='bg-green-500 col-span-4'>Hi</div>
       <div className='bg-yellow-500 col-span-2'>Hi</div>
+      
+    </div>
+}
+function FlexSpan(){
+  return <div className='flex mt-4'>
+      <div className='bg-red-500 w-[40%]'>Hi</div>
+      <div className='bg-green-500 w-[40%]'>Hi</div>
+      <div className='bg-yellow-500 w-[20%]'>Hi</div>
       
     </div>
 }
