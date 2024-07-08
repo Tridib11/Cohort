@@ -14,6 +14,7 @@ function App() {
       <Grids/>
       <GridsSpan/>
       <FlexSpan/>
+      <Responsive/>
       
     </div>
   )
@@ -43,5 +44,11 @@ function FlexSpan(){
       <div className='bg-yellow-500 w-[20%]'>Hi</div>
       
     </div>
+}
+
+function Responsive(){
+  return <div>
+    <div className='text-center sm:text-left bg-red-500 mt-1'>Experiment</div>
+  </div>
 }
 export default App
