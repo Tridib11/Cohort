@@ -18,7 +18,7 @@ async function main(){
     }
   })
 
-  console.log(response.data)
+  console.log("sent")
 
 
 }
