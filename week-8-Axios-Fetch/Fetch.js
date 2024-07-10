@@ -3,6 +3,7 @@ function main(){
   .then(async response =>{
     const json = await response.json()
     console.log(json)
+    console.log(json.todos.length)
   })
 }
 
