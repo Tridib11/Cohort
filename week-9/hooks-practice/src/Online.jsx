@@ -11,6 +11,11 @@ function useIsOnline() {
     window.addEventListener('offline', () => {
       setIsOnline(false);
     });
+
+    return ()=>{
+      window.removeEventListener('online')
+      window.removeEventListener('offline')
+    }
     
   }, []);
 
