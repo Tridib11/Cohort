@@ -17,7 +17,7 @@ function useTodos(){
 }
 
 
-function CustomHooks() {
+function CustomTodoHook() {
   const todos=useTodos()
 
   return (
@@ -37,4 +37,4 @@ function Track({todo}){
   </div>
 }
 
-export default CustomHooks
+export default CustomTodoHook
