@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 import './index.css'
-import Online from './Online'
+import Interval from './Interval'
+// import Online from './Online'
 // import CustomTodoHook from './CustomTodoHook'
 // import Todo from './Todo'
 // import Testing from './Testing'
@@ -17,5 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <Testing/>
   // <Todo/>
   // <CustomTodoHook/>
-  <Online/>
+  // <Online/>
+  <Interval/>
 )
