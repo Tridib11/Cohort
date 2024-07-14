@@ -5,22 +5,24 @@ import axios from 'axios';
 
 function useTodos(){
   const[todos,setTodos]=useState([]);
+  const[loading,setLoading]=useState(true)
   useEffect(()=>{
     axios.get("https://sum-server.100xdevs.com/todos")
     .then(res=>{
       setTodos(res.data.todos)
+      setLoading(false)
     })
 
   },[])
-  return todos
+  return {todos,loading}
 }
 
 function CustomTodoHook() {
-  const todos=useTodos()
+  const {todos,loading}=useTodos()
 
   return (
     <div>
-      {todos.map(todo=><Track key={todo.id} todo={todo}/>)}
+      {loading?<div>loading....</div>:todos.map(todo=><Track key={todo.id} todo={todo}/>)}
     </div>
   )
 }
