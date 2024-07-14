@@ -3,7 +3,6 @@ import { useEffect,useState } from 'react';
 import './App.css'
 import axios from 'axios';
 
-
 function useTodos(){
   const[todos,setTodos]=useState([]);
   useEffect(()=>{
@@ -16,7 +15,6 @@ function useTodos(){
   return todos
 }
 
-
 function CustomTodoHook() {
   const todos=useTodos()
 
@@ -26,9 +24,6 @@ function CustomTodoHook() {
     </div>
   )
 }
-
-
-
 
 function Track({todo}){
   return <div>
