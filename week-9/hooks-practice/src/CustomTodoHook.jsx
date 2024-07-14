@@ -8,7 +8,7 @@ function useTodos(n){
   const[loading,setLoading]=useState(true)
   
   useEffect(()=>{
-    setInterval(()=>{
+    const value=setInterval(()=>{
       axios.get("https://sum-server.100xdevs.com/todos")
     .then(res=>{
       setTodos(res.data.todos)
@@ -21,19 +21,39 @@ function useTodos(n){
       setLoading(false)
     })
 
+    return ()=>{
+      console.log("Unmounted")
+      clearInterval(value)
+    }
+
   },[n])
   return {todos,loading}
 }
 
 function CustomTodoHook() {
-  const {todos,loading}=useTodos(5)
+  const[input,setInput]=useState(2)
+  const {todos,loading}=useTodos(Number(input))
 
   return (
     <div>
+      <InputComponent setInput={setInput} />
       {loading?<div>loading....</div>:todos.map(todo=><Track key={todo.id} todo={todo}/>)}
     </div>
   )
 }
+
+
+function InputComponent({ setInput }) {
+  return (
+    <input 
+      type="text"  
+      onChange={(e) => {
+        setInput(e.target.value);
+      }}
+    />
+  );
+}
+
 
 function Track({todo}){
   return <div>
