@@ -4,11 +4,11 @@ function NewApp() {
   const[render,setRender]=useState(true)
 
   useEffect(()=>{
-    setTimeout(()=>{
-      setRender(false)
+    setInterval(()=>{
+      setRender(render=>!render)
     },10000)
   },[])
-  
+
   return (
     <div>
       {render? <MyComponent/>:<div></div>}
