@@ -1,9 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 function NewApp() {
+  const[render,setRender]=useState(true)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setRender(false)
+    },10000)
+  },[])
+  
   return (
     <div>
-      <MyComponent/>
+      {render? <MyComponent/>:<div></div>}
     </div>
   )
 }
