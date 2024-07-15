@@ -6,7 +6,7 @@ interface User{
 
 function isLegal(user:User){
   return user.age>18?true:false
-}
+} 
 
 const val=isLegal({
   firstName:"Tridib",
