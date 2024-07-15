@@ -1,5 +1,6 @@
-function sum(a:number,b:number){
-  console.log(`The sum is ${a+b}`)
+function sum(a:number,b:number):number{
+  return a+b
 }
 
-sum(2,3)
+const value=sum(2,3)
+console.log(value)
