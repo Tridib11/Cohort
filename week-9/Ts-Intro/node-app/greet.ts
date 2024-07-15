@@ -5,8 +5,8 @@
 
 // Greet("Tridib")
 
-function Greet(name:string){
-  console.log(`hello ${name}`)
+function Greet(name:string,lastname:string,age:number){
+  console.log(`hello ${name} ${lastname} , age:${age}`)
 }
 
-Greet("Tridib")
+Greet("Tridib","Ghosh",12)

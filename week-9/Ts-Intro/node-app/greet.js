@@ -3,7 +3,7 @@
 //   console.log(`hello ${name}`)
 // }
 // Greet("Tridib")
-function Greet(name) {
-    console.log("hello ".concat(name));
+function Greet(name, lastname, age) {
+    console.log("hello ".concat(name, " ").concat(lastname, " , age:").concat(age));
 }
-Greet("Tridib");
+Greet("Tridib", "Ghosh", 12);
