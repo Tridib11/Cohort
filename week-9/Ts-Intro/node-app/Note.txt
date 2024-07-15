@@ -1,0 +1,1 @@
+Interfaces you can extend in a claass and types lets you do or,and ,union and intersections
