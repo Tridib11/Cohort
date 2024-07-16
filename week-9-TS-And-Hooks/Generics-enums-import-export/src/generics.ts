@@ -12,3 +12,5 @@ const value=Fname(["Rohan","Paul"])
 console.log(value.toUpperCase())
 
 */
+
+
