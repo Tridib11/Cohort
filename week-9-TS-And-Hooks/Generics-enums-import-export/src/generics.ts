@@ -21,6 +21,7 @@ function generics <T>(args:T){
 
 let output1=generics<string>("ROhan")
 console.log(output1)
+console.log(output1.toUpperCase())
 
 let output2=generics<number>(199)
 console.log(output2)
