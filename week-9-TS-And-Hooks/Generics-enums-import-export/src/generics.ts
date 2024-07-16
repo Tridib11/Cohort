@@ -27,6 +27,7 @@ let output2=generics<number>(199)
 console.log(output2)
 
 
+//----------------------------------------------
 
 function getFirstElement<T>(agrs:T[]){
   return agrs[0]
