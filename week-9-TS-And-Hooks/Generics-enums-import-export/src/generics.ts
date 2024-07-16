@@ -25,3 +25,12 @@ console.log(output1.toUpperCase())
 
 let output2=generics<number>(199)
 console.log(output2)
+
+
+
+function getFirstElement<T>(agrs:T[]){
+  return agrs[0]
+}
+
+const el=getFirstElement(["Tridib","Ghosh"])
+console.log(el.toUpperCase())
