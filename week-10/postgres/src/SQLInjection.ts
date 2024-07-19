@@ -8,6 +8,7 @@ async function insertData(username: string, email: string, password: string) {
 
   try {
     await client.connect(); // Ensure client connection is established
+
     const insertQuery=`INSERT INTO users (username,email,password) VALUES($1,$2,$3)`;
     const values=[username,email,password]  
     const res=await client.query(insertQuery,values)
