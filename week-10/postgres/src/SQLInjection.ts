@@ -4,8 +4,6 @@ const client=new Client({
 })
 
 async function insertData(username: string, email: string, password: string) {
-  await client.connect()
-
   try {
     await client.connect(); // Ensure client connection is established
 
