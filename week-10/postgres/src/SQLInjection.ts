@@ -5,6 +5,8 @@ const client=new Client({
 //lines added to be deleted after exam
 console.log("Pushing")
 console.log("pushing")
+console.log("Pushing")
+console.log("pushing")
 
 async function insertData(username: string, email: string, password: string) {
   try {
