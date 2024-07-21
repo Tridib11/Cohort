@@ -2,7 +2,9 @@ import { Client } from "pg";
 const client=new Client({
   connectionString:"postgresql://cohort_owner:dHn9z4ToxuaG@ep-wild-unit-a5tgec3a.us-east-2.aws.neon.tech/cohort?sslmode=require"
 })
+//lines added to be deleted after exam
 console.log("Pushing")
+console.log("")
 
 async function insertData(username: string, email: string, password: string) {
   try {
